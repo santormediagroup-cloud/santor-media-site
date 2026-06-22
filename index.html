@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SanTor Media Group — AI for animators, without the hype or the doom</title>
+<meta name="description" content="SanTor Media Group helps working animators use AI to protect their time and energy for the craft. A real feature animator translating the noise into what actually helps your week.">
+<link rel="icon" href="assets/icon-orange.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F47A21; --deep:#D85C12; --navy:#0F1C2E; --cloud:#EEF1F4; --slate:#9AA6B2; --white:#fff;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Roboto','Helvetica Neue',Arial,sans-serif;
+    color:var(--navy); background:var(--white); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ width:100%; max-width:1080px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--deep); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+
+  /* HERO */
+  .hero{ background:var(--navy); color:var(--white); padding:34px 0 96px; }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:6px 0 64px; }
+  .nav img{ height:40px; display:block; }
+  .nav .navlink{ color:var(--cloud); font-weight:500; font-size:15px; letter-spacing:.02em; }
+  .hero h1{
+    font-size:clamp(34px,5.4vw,60px); font-weight:900; line-height:1.07; letter-spacing:-0.015em;
+    max-width:15ch;
+  }
+  .hero h1 .accent{ color:var(--orange); }
+  .hero p.lede{
+    margin-top:22px; font-size:clamp(17px,2vw,21px); color:#D7DEE6; max-width:46ch; font-weight:400;
+  }
+  .cta{ margin-top:36px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; font-weight:700; font-size:16px; padding:14px 26px; border-radius:8px;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .btn:hover{ text-decoration:none; transform:translateY(-1px); }
+  .btn-primary{ background:var(--orange); color:var(--navy); }
+  .btn-primary:hover{ background:#ff8a33; }
+  .btn-ghost{ background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,.35); }
+  .btn-ghost:hover{ border-color:var(--orange); color:var(--orange); }
+
+  /* SECTIONS */
+  section{ padding:84px 0; }
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.16em; font-size:13px; font-weight:700; color:var(--orange);
+    margin-bottom:14px;
+  }
+  h2{ font-size:clamp(26px,3.4vw,38px); font-weight:900; letter-spacing:-0.01em; line-height:1.15; max-width:18ch; }
+  .lead{ font-size:19px; color:#33404f; max-width:60ch; margin-top:18px; }
+  .lead + .lead{ margin-top:16px; }
+  .lead strong{ color:var(--navy); }
+
+  .stance{ background:var(--cloud); }
+
+  /* CREDS */
+  .creds{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+  .chip{
+    background:var(--white); border:1px solid #dfe5eb; border-radius:999px;
+    padding:9px 18px; font-weight:500; font-size:15px; color:var(--navy);
+  }
+  .chip b{ color:var(--deep); }
+
+  /* WHAT WE MAKE */
+  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
+  .card{
+    border:1px solid #e3e8ee; border-radius:14px; padding:32px; background:var(--white);
+    display:flex; flex-direction:column;
+  }
+  .card .tag{ font-size:13px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--slate); }
+  .card h3{ font-size:24px; font-weight:900; margin:8px 0 12px; letter-spacing:-0.01em; }
+  .card p{ color:#404d5c; font-size:16px; flex-grow:1; }
+  .card .go{ margin-top:18px; font-weight:700; color:var(--deep); font-size:16px; }
+  .card.feature{ border-top:4px solid var(--orange); }
+
+  /* CONTACT */
+  .contact{ background:var(--navy); color:var(--white); text-align:center; }
+  .contact h2{ margin:0 auto; max-width:none; }
+  .contact p{ color:#D7DEE6; font-size:19px; margin-top:16px; }
+  .contact .mail{ display:inline-block; margin-top:26px; font-size:clamp(20px,3vw,30px); font-weight:700; color:var(--orange); }
+
+  /* FOOTER */
+  footer{ background:#0a1320; color:var(--slate); padding:34px 0; font-size:14px; }
+  footer .frow{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  footer img{ height:26px; opacity:.9; }
+
+  @media (max-width:720px){
+    .cards{ grid-template-columns:1fr; }
+    section{ padding:60px 0; }
+    .hero{ padding:26px 0 70px; }
+    .nav{ padding-bottom:44px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <nav class="nav">
+        <img src="assets/logo-primary-dark.png" alt="SanTor Media Group">
+        <a class="navlink" href="#make">What we make</a>
+      </nav>
+      <h1>AI for animators. Without the <span class="accent">hype</span>, or the <span class="accent">doom</span>.</h1>
+      <p class="lede">We help working animators use AI to protect their time and energy for the craft, not replace it. A real feature animator, translating the noise into what actually helps your week.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://santor-media-group-awclzj.subscribepage.io">Read The Animation Frontier</a>
+        <a class="btn btn-ghost" href="#make">See what we make</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="stance">
+    <div class="wrap">
+      <p class="eyebrow">The lane</p>
+      <h2>The industry is arguing about AI in the worst possible way.</h2>
+      <p class="lead">One side says adapt or die. The other says it is all theft, do not touch it. Both are loud, both are exhausting, and neither one helps you when you sit down to work tomorrow morning.</p>
+      <p class="lead">SanTor Media Group does the practical version instead: <strong>which tools are actually worth your time, how to get your hours back from the busywork, and how to protect the part of the work that is irreplaceably yours.</strong> Craft is the constant. Everything else is just tools.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Who is behind it</p>
+      <h2>A feature animator, learning AI in public.</h2>
+      <p class="lead">David Torres has animated feature films for 27 years and still animates every day. He is not an AI evangelist who picked up animation. He is an animator figuring out these tools honestly, in real time, and sharing what actually works with the people doing the work.</p>
+      <div class="creds">
+        <span class="chip"><b>27 years</b> in feature animation</span>
+        <span class="chip">Academy Member</span>
+        <span class="chip"><b>VES Award</b> nominee</span>
+        <span class="chip"><b>Annie Award</b> nominee</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="make" class="stance">
+    <div class="wrap">
+      <p class="eyebrow">What we make</p>
+      <h2>Practical AI, made for animators.</h2>
+      <div class="cards">
+        <div class="card feature">
+          <span class="tag">Weekly newsletter</span>
+          <h3>The Animation Frontier</h3>
+          <p>Helping animators navigate AI and the future of animation. Calm, practical, anti-hype and anti-doom. The signal, without the noise, every week.</p>
+          <a class="go" href="https://santor-media-group-awclzj.subscribepage.io">Subscribe free &rarr;</a>
+        </div>
+        <div class="card">
+          <span class="tag">Craft lessons</span>
+          <h3>Animation Flight School</h3>
+          <p>Lessons drawn from 27 years in feature animation. The fundamentals of acting and performance that no tool can hand you, taught by someone who still does the work.</p>
+          <span class="go" style="color:var(--slate)">More soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>Let's talk.</h2>
+      <p>Questions, press, partnerships, or just want to compare notes on AI and the craft?</p>
+      <a class="mail" href="mailto:santormediagroup@gmail.com">santormediagroup@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap frow">
+      <img src="assets/logo-primary-light.png" alt="SanTor Media Group">
+      <span>&copy; 2026 SanTor Media Group. All rights reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
