@@ -3,15 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SanTor Media Group — AI for animators, without the hype or the doom</title>
-<meta name="description" content="SanTor Media Group helps working animators use AI to protect their time and energy for the craft. A real feature animator translating the noise into what actually helps your week.">
+<title>Santor Media Ventures — AI for animators, without the hype or the doom</title>
+<meta name="description" content="Santor Media Ventures helps working animators use AI to protect their time and energy for the craft. Reel reviews, a weekly newsletter, and practical tools from a feature animator with 27 years in the chair.">
 <link rel="icon" href="assets/icon-orange.png" type="image/png">
+<meta property="og:title" content="Santor Media Ventures — AI for animators">
+<meta property="og:description" content="Practical AI for working animators. Reel reviews, a weekly newsletter, and tools built by a feature animator who still animates every day.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
 <style>
   :root{
     --orange:#F47A21; --deep:#D85C12; --navy:#0F1C2E; --cloud:#EEF1F4; --slate:#9AA6B2; --white:#fff;
+    --ink70:rgba(15,28,46,.74); --line:#e3e8ee;
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -20,27 +24,42 @@
     color:var(--navy); background:var(--white); line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{ width:100%; max-width:1080px; margin:0 auto; padding:0 28px; }
+  .wrap{ width:100%; max-width:1120px; margin:0 auto; padding:0 28px; }
   a{ color:var(--deep); text-decoration:none; }
   a:hover{ text-decoration:underline; }
 
-  /* HERO */
-  .hero{ background:var(--navy); color:var(--white); padding:34px 0 96px; }
-  .nav{ display:flex; align-items:center; justify-content:space-between; padding:6px 0 64px; }
-  .nav img{ height:40px; display:block; }
-  .nav .navlink{ color:var(--cloud); font-weight:500; font-size:15px; letter-spacing:.02em; }
+  /* ---------- LOCKUP (text-based so the name is editable) ---------- */
+  .lockup{ display:flex; align-items:center; gap:11px; text-decoration:none; }
+  .lockup:hover{ text-decoration:none; }
+  .lockup img{ height:38px; width:38px; display:block; }
+  .lk-word{ display:block; font-weight:900; font-style:italic; font-size:25px; line-height:1; letter-spacing:-.01em; }
+  .lk-san{ color:var(--white); }
+  .lk-tor{ color:var(--orange); }
+  .lk-sub{
+    display:block; font-size:8.5px; font-weight:500; text-transform:uppercase;
+    letter-spacing:.34em; color:var(--slate); margin-top:5px;
+  }
+  footer .lockup img{ height:30px; width:30px; }
+  footer .lk-word{ font-size:20px; }
+  footer .lk-sub{ font-size:7.5px; margin-top:4px; }
+
+  /* ---------- HERO ---------- */
+  .hero{ background:var(--navy); color:var(--white); padding:30px 0 92px; }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:6px 0 70px; gap:20px; }
+  .navlinks{ display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
+  .navlinks a{ color:var(--cloud); font-weight:500; font-size:15px; letter-spacing:.01em; }
+  .navlinks a:hover{ color:var(--orange); text-decoration:none; }
+
+  .herogrid{ display:grid; grid-template-columns:1.28fr .72fr; gap:64px; align-items:start; }
   .hero h1{
-    font-size:clamp(34px,5.4vw,60px); font-weight:900; line-height:1.07; letter-spacing:-0.015em;
-    max-width:15ch;
+    font-size:clamp(34px,5vw,58px); font-weight:900; line-height:1.07; letter-spacing:-.015em;
   }
   .hero h1 .accent{ color:var(--orange); }
-  .hero p.lede{
-    margin-top:22px; font-size:clamp(17px,2vw,21px); color:#D7DEE6; max-width:46ch; font-weight:400;
-  }
-  .cta{ margin-top:36px; display:flex; gap:14px; flex-wrap:wrap; }
+  .hero p.lede{ margin-top:22px; font-size:clamp(17px,1.7vw,20px); color:#D7DEE6; max-width:48ch; }
+  .cta{ margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; }
   .btn{
     display:inline-block; font-weight:700; font-size:16px; padding:14px 26px; border-radius:8px;
-    transition:transform .12s ease, background .12s ease;
+    transition:transform .12s ease, background .12s ease, border-color .12s ease, color .12s ease;
   }
   .btn:hover{ text-decoration:none; transform:translateY(-1px); }
   .btn-primary{ background:var(--orange); color:var(--navy); }
@@ -48,120 +67,336 @@
   .btn-ghost{ background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,.35); }
   .btn-ghost:hover{ border-color:var(--orange); color:var(--orange); }
 
-  /* SECTIONS */
-  section{ padding:84px 0; }
+  /* hero side panel — fills the dead right column */
+  .glance{
+    background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.13);
+    border-radius:16px; padding:28px 26px; margin-top:10px;
+  }
+  .glance h4{
+    font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.15em;
+    color:var(--orange); margin-bottom:18px;
+  }
+  .glance ul{ list-style:none; }
+  .glance li{ padding:13px 0; border-top:1px solid rgba(255,255,255,.1); }
+  .glance li:first-child{ border-top:0; padding-top:0; }
+  .glance li:last-child{ padding-bottom:0; }
+  .glance .gl-t{ display:block; font-weight:700; font-size:16px; color:var(--white); }
+  .glance .gl-d{ display:block; font-size:14px; color:#AFBBC7; margin-top:2px; line-height:1.45; }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:82px 0; }
+  .cloud{ background:var(--cloud); }
+  .dark{ background:var(--navy); color:var(--white); }
   .eyebrow{
     text-transform:uppercase; letter-spacing:.16em; font-size:13px; font-weight:700; color:var(--orange);
     margin-bottom:14px;
   }
-  h2{ font-size:clamp(26px,3.4vw,38px); font-weight:900; letter-spacing:-0.01em; line-height:1.15; max-width:18ch; }
-  .lead{ font-size:19px; color:rgba(15,28,46,.74); max-width:60ch; margin-top:18px; }
-  .lead + .lead{ margin-top:16px; }
+  h2{ font-size:clamp(26px,3.2vw,37px); font-weight:900; letter-spacing:-.01em; line-height:1.16; max-width:24ch; }
+  .dark h2{ color:var(--white); }
+  .lead{ font-size:18.5px; color:var(--ink70); max-width:62ch; margin-top:18px; }
+  .lead + .lead{ margin-top:15px; }
   .lead strong{ color:var(--navy); }
+  .dark .lead{ color:#C6D0DA; }
+  .dark .lead strong{ color:var(--white); }
+  .sechead{ display:grid; grid-template-columns:1fr .78fr; gap:56px; align-items:end; }
+  /* heading left, body right — keeps wide screens from running a dead right column */
+  .split{ display:grid; grid-template-columns:.88fr 1.12fr; gap:60px; align-items:start; }
+  .split .lead{ max-width:none; }
+  @media (max-width:860px){
+    .sechead{ grid-template-columns:1fr; gap:0; }
+    .split{ grid-template-columns:1fr; gap:22px; }
+  }
 
-  .stance{ background:var(--cloud); }
+  /* ---------- SERVICES ---------- */
+  .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:44px; }
+  .card{
+    border:1px solid var(--line); border-radius:16px; padding:32px; background:var(--white);
+    display:flex; flex-direction:column; transition:transform .14s ease, box-shadow .14s ease;
+  }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(15,28,46,.09); }
+  .card .tag{ font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--slate); }
+  .card h3{ font-size:24px; font-weight:900; margin:8px 0 12px; letter-spacing:-.01em; }
+  .card p{ color:rgba(15,28,46,.72); font-size:16px; }
+  .card p{ flex-grow:1; }
+  .card .go{ margin-top:20px; font-weight:700; color:var(--deep); font-size:16px; }
+  .card .go.muted{ color:var(--slate); }
+  /* secondary services sit in an even row of three — a structured comparison,
+     so it reads as deliberate rather than a grid with a hole in it */
+  .cards-sub{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px; }
+  @media (max-width:940px){ .cards-sub{ grid-template-columns:1fr; } }
 
-  /* CREDS */
-  .creds{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+  .card.hero-offer{
+    grid-column:1 / -1; border:0; background:var(--navy); color:var(--white);
+    border-top:5px solid var(--orange); padding:40px;
+    display:grid; grid-template-columns:1.1fr .9fr; gap:44px; margin-top:0;
+  }
+  .card.hero-offer:hover{ transform:none; box-shadow:none; }
+  .card.hero-offer .tag{ color:var(--orange); }
+  .card.hero-offer h3{ font-size:31px; margin-top:9px; }
+  .card.hero-offer p{ color:#C6D0DA; font-size:17px; }
+  .incl{ list-style:none; margin-top:4px; }
+  .incl li{ position:relative; padding:9px 0 9px 26px; font-size:15.5px; color:#DBE3EA; line-height:1.5; }
+  .incl li:before{
+    content:""; position:absolute; left:2px; top:17px; width:8px; height:8px;
+    border-radius:50%; background:var(--orange);
+  }
+  .offer-side{ display:flex; flex-direction:column; justify-content:space-between; gap:24px; }
+  @media (max-width:860px){
+    .card.hero-offer{ grid-template-columns:1fr; gap:26px; padding:32px; }
+  }
+
+  /* ---------- PROCESS ---------- */
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; margin-top:48px; }
+  .step{ position:relative; }
+  /* organic stagger so it isn't a ruled row */
+  .steps .step:nth-child(2){ transform:translateY(22px); }
+  .steps .step:nth-child(3){ transform:translateY(-12px); }
+  .steps .step:nth-child(4){ transform:translateY(14px); }
+  .step .num{
+    width:42px; height:42px; border-radius:50%; background:rgba(244,122,33,.15);
+    border:1.5px solid var(--orange); color:var(--orange);
+    display:flex; align-items:center; justify-content:center; font-weight:900; font-size:17px;
+    margin-bottom:16px;
+  }
+  .step h4{ font-size:18px; font-weight:900; color:var(--white); margin-bottom:7px; }
+  .step p{ font-size:15px; color:#B4C0CC; line-height:1.55; }
+  @media (max-width:860px){
+    .steps{ grid-template-columns:1fr 1fr; gap:30px; }
+    .steps .step{ transform:none !important; }
+  }
+  @media (max-width:520px){ .steps{ grid-template-columns:1fr; } }
+
+  .promise{
+    margin-top:52px; border:1px solid rgba(255,255,255,.16); border-radius:14px;
+    padding:26px 30px; background:rgba(255,255,255,.045);
+    display:flex; gap:34px; flex-wrap:wrap;
+  }
+  .promise div{ flex:1 1 210px; }
+  .promise dt{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--orange); margin-bottom:6px; }
+  .promise dd{ font-size:15.5px; color:#D7DEE6; line-height:1.5; }
+
+  /* ---------- CREDS ---------- */
+  .creds{ display:flex; flex-wrap:wrap; gap:13px; margin-top:30px; }
   .chip{
     background:var(--white); border:1px solid #dfe5eb; border-radius:999px;
     padding:9px 18px; font-weight:500; font-size:15px; color:var(--navy);
   }
   .chip b{ color:var(--deep); }
 
-  /* WHAT WE MAKE */
-  .cards{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
-  .card{
-    border:1px solid #e3e8ee; border-radius:14px; padding:32px; background:var(--white);
-    display:flex; flex-direction:column;
-  }
-  .card .tag{ font-size:13px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--slate); }
-  .card h3{ font-size:24px; font-weight:900; margin:8px 0 12px; letter-spacing:-0.01em; }
-  .card p{ color:rgba(15,28,46,.72); font-size:16px; flex-grow:1; }
-  .card .go{ margin-top:18px; font-weight:700; color:var(--deep); font-size:16px; }
-  .card.feature{ border-top:4px solid var(--orange); }
-
-  /* CONTACT */
-  .contact{ background:var(--navy); color:var(--white); text-align:center; }
+  /* ---------- CONTACT ---------- */
+  .contact{ background:var(--cloud); text-align:center; }
   .contact h2{ margin:0 auto; max-width:none; }
-  .contact p{ color:#D7DEE6; font-size:19px; margin-top:16px; }
-  .contact .mail{ display:inline-block; margin-top:26px; font-size:clamp(20px,3vw,30px); font-weight:700; color:var(--orange); }
+  .contact p{ color:var(--ink70); font-size:18.5px; margin-top:16px; }
+  .contact .mail{ display:inline-block; margin-top:24px; font-size:clamp(20px,2.9vw,30px); font-weight:700; color:var(--deep); }
 
-  /* FOOTER */
-  footer{ background:#0a1320; color:var(--slate); padding:34px 0; font-size:14px; }
-  footer .frow{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-  footer img{ height:26px; opacity:.9; }
-
+  /* ---------- FOOTER ---------- */
+  footer{ background:#0a1320; color:var(--slate); padding:44px 0 38px; font-size:14px; }
+  .frow{ display:flex; align-items:flex-start; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+  .fmeta{ text-align:right; line-height:1.65; }
+  .fmeta .legal{ color:#C6D0DA; font-weight:500; }
+  .fbot{
+    margin-top:30px; padding-top:22px; border-top:1px solid rgba(255,255,255,.08);
+    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:13px;
+  }
   @media (max-width:720px){
+    .fmeta{ text-align:left; }
+    .herogrid{ grid-template-columns:1fr; gap:44px; }
     .cards{ grid-template-columns:1fr; }
     section{ padding:60px 0; }
-    .hero{ padding:26px 0 70px; }
-    .nav{ padding-bottom:44px; }
+    .hero{ padding:24px 0 66px; }
+    .nav{ padding-bottom:46px; }
+    .navlinks{ gap:18px; }
   }
 </style>
 </head>
-<body>
+<body id="top">
 
   <header class="hero">
     <div class="wrap">
       <nav class="nav">
-        <img src="assets/logo-primary-dark.png" alt="SanTor Media Group">
-        <a class="navlink" href="#make">What we make</a>
+        <a class="lockup" href="#top" aria-label="Santor Media Ventures — home">
+          <img src="assets/icon-orange.png" alt="">
+          <span>
+            <span class="lk-word"><span class="lk-san">San</span><span class="lk-tor">Tor</span></span>
+            <span class="lk-sub">Media Ventures</span>
+          </span>
+        </a>
+        <span class="navlinks">
+          <a href="#services">Services</a>
+          <a href="#how">How it works</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </span>
       </nav>
-      <h1>AI for animators. Without the <span class="accent">hype</span>, or the <span class="accent">doom</span>.</h1>
-      <p class="lede">We help working animators use AI to protect their time and energy for the craft, not replace it. A real feature animator, translating the noise into what actually helps your week.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://santor-media-group-awclzj.subscribepage.io">Read The Animation Frontier</a>
-        <a class="btn btn-ghost" href="#make">See what we make</a>
+
+      <div class="herogrid">
+        <div>
+          <h1>AI for animators. Without the <span class="accent">hype</span>, or the <span class="accent">doom</span>.</h1>
+          <p class="lede">We help working animators use AI to protect their time and energy for the craft, not replace it. A real feature animator, translating the noise into what actually helps your week.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://tally.so/r/5BDjao">Book a Reel Review</a>
+            <a class="btn btn-ghost" href="https://santor-media-group-awclzj.subscribepage.io">Read The Animation Frontier</a>
+          </div>
+        </div>
+
+        <aside class="glance">
+          <h4>What we do</h4>
+          <ul>
+            <li>
+              <span class="gl-t">Reel Review</span>
+              <span class="gl-d">A recorded teardown of your demo reel, back within five business days.</span>
+            </li>
+            <li>
+              <span class="gl-t">The Animation Frontier</span>
+              <span class="gl-d">A free weekly read on AI and the future of animation.</span>
+            </li>
+            <li>
+              <span class="gl-t">Tools for the craft</span>
+              <span class="gl-d">Small, free things that make the work easier before you animate.</span>
+            </li>
+          </ul>
+        </aside>
       </div>
     </div>
   </header>
 
-  <section class="stance">
+  <section class="cloud">
     <div class="wrap">
-      <p class="eyebrow">The lane</p>
-      <h2>The industry is arguing about AI in the worst possible way.</h2>
-      <p class="lead">One side says adapt or die. The other says it is all theft, do not touch it. Both are loud, both are exhausting, and neither one helps you when you sit down to work tomorrow morning.</p>
-      <p class="lead">SanTor Media Group does the practical version instead: <strong>which tools are actually worth your time, how to get your hours back from the busywork, and how to protect the part of the work that is irreplaceably yours.</strong> Craft is the constant. Everything else is just tools.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="eyebrow">Who is behind it</p>
-      <h2>A feature animator, learning AI in public.</h2>
-      <p class="lead">David Torres has animated feature films for 27 years and still animates every day. He is not an AI evangelist who picked up animation. He is an animator figuring out these tools honestly, in real time, and sharing what actually works with the people doing the work.</p>
-      <div class="creds">
-        <span class="chip"><b>27 years</b> in feature animation</span>
-        <span class="chip">Academy Member</span>
-        <span class="chip"><b>VES Award</b> nominee</span>
-        <span class="chip"><b>Annie Award</b> nominee</span>
+      <div class="split">
+        <div>
+          <p class="eyebrow">The lane</p>
+          <h2>The industry is arguing about AI in the worst possible way.</h2>
+        </div>
+        <div>
+          <p class="lead" style="margin-top:0">One side says adapt or die. The other says it is all theft, do not touch it. Both are loud, both are exhausting, and neither one helps you when you sit down to work tomorrow morning.</p>
+          <p class="lead">Santor Media Ventures does the practical version instead. <strong>Which tools are actually worth your time, how to get your hours back from the busywork, and how to protect the part of the work that is irreplaceably yours.</strong> Craft is the constant. Everything else is just tools.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="make" class="stance">
+  <section id="services">
     <div class="wrap">
-      <p class="eyebrow">What we make</p>
-      <h2>Practical AI, made for animators.</h2>
+      <div class="sechead">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h2>Practical AI, made for animators.</h2>
+        </div>
+        <p class="lead" style="margin-top:0">Two free things that help every week, and one paid review where you get my eye on your actual frames.</p>
+      </div>
+
       <div class="cards">
-        <div class="card feature">
-          <span class="tag">Weekly newsletter</span>
+        <div class="card hero-offer">
+          <div>
+            <span class="tag">Paid review</span>
+            <h3>Reel Review</h3>
+            <p>Send whatever reel you want looked at. You get back a recorded video with my honest take. What is landing, what is missing, where you are reading against the bar, and the one thing I would sharpen first.</p>
+            <a class="btn btn-primary" style="margin-top:26px" href="https://tally.so/r/5BDjao">Book a review &rarr;</a>
+          </div>
+          <div class="offer-side">
+            <ul class="incl">
+              <li>A recorded video teardown, roughly ten minutes, yours to keep</li>
+              <li>A one-page written summary you can re-read every time you re-cut</li>
+              <li>Back within five business days of booking</li>
+              <li>Reviewed by an animator who still animates every day</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cards-sub">
+        <div class="card">
+          <span class="tag">Free weekly newsletter</span>
           <h3>The Animation Frontier</h3>
           <p>Helping animators navigate AI and the future of animation. Calm, practical, anti-hype and anti-doom. The signal, without the noise, every week.</p>
           <a class="go" href="https://santor-media-group-awclzj.subscribepage.io">Subscribe free &rarr;</a>
         </div>
+
+        <div class="card">
+          <span class="tag">Free tool</span>
+          <h3>The Hot Seat</h3>
+          <p>Answer a short run of questions about a shot before you animate it, and walk away with a clear read on what the performance is actually for. The thinking that saves you the second pass.</p>
+          <a class="go" href="https://hot-seat-app.vercel.app">Try it free &rarr;</a>
+        </div>
+
         <div class="card">
           <span class="tag">Craft lessons</span>
           <h3>Animation Flight School</h3>
           <p>Lessons drawn from 27 years in feature animation. The fundamentals of acting and performance that no tool can hand you, taught by someone who still does the work.</p>
-          <span class="go" style="color:var(--slate)">More soon</span>
+          <span class="go muted">In development</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact">
+  <section id="how" class="dark">
+    <div class="wrap">
+      <p class="eyebrow">How a Reel Review works</p>
+      <h2>No calls to schedule. No time zones to solve.</h2>
+      <p class="lead">It is deliberately asynchronous. You send the reel on your time, I review it on mine, and you get something you can rewatch instead of a call you half remember.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h4>Send your reel</h4>
+          <p>Fill out a short form with a link to your reel and what you are aiming at.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h4>Pay at booking</h4>
+          <p>One flat fee, charged when you book. No tiers, no add-ons, no upsell maze.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h4>Sign the release</h4>
+          <p>A short permission form so I can review your work. Required before anything starts.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h4>Get your teardown</h4>
+          <p>A private video link plus your one-page summary, inside five business days.</p>
+        </div>
+      </div>
+
+      <dl class="promise">
+        <div>
+          <dt>Turnaround</dt>
+          <dd>Within five business days of a completed booking.</dd>
+        </div>
+        <div>
+          <dt>Privacy</dt>
+          <dd>Your reel and your review stay private. The video link is unlisted and yours alone.</dd>
+        </div>
+        <div>
+          <dt>Capacity</dt>
+          <dd>Reviews open in small batches so every one gets real attention.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="about" class="cloud">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Who is behind it</p>
+          <h2>A feature animator, learning AI in public.</h2>
+        </div>
+        <div>
+          <p class="lead" style="margin-top:0">David Torres has animated feature films for 27 years and still animates every day. He is not an AI evangelist who picked up animation. He is an animator figuring out these tools honestly, in real time, and sharing what actually works with the people doing the work.</p>
+          <div class="creds">
+            <span class="chip"><b>27 years</b> in feature animation</span>
+            <span class="chip">Academy Member</span>
+            <span class="chip"><b>VES Award</b> nominee</span>
+            <span class="chip"><b>Annie Award</b> nominee</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
     <div class="wrap">
       <h2>Let's talk.</h2>
       <p>Questions, press, partnerships, or just want to compare notes on AI and the craft?</p>
@@ -170,9 +405,25 @@
   </section>
 
   <footer>
-    <div class="wrap frow">
-      <img src="assets/logo-onecolor-white.png" alt="SanTor Media Group">
-      <span>&copy; 2026 SanTor Media Group. All rights reserved.</span>
+    <div class="wrap">
+      <div class="frow">
+        <a class="lockup" href="#top" aria-label="Santor Media Ventures — home">
+          <img src="assets/icon-orange.png" alt="">
+          <span>
+            <span class="lk-word"><span class="lk-san">San</span><span class="lk-tor">Tor</span></span>
+            <span class="lk-sub">Media Ventures</span>
+          </span>
+        </a>
+        <div class="fmeta">
+          <div class="legal">Santor Media Ventures</div>
+          <div>1968 S. Coast Hwy #2675, Laguna Beach, CA 92651</div>
+          <div><a href="mailto:santormediagroup@gmail.com" style="color:var(--slate)">santormediagroup@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="fbot">
+        <span>&copy; 2026 Santor Media Ventures. All rights reserved.</span>
+        <span>AI for animators, without the hype or the doom.</span>
+      </div>
     </div>
   </footer>
 
