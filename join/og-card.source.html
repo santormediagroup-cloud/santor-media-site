@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+/* The Animation Frontier — social preview card, exactly 1200x630 (LinkedIn / OG standard).
+   Field Guide DARK skin; palette is email.paletteDark from
+   Automated Newsletter/brand/frontier/brand.json. Rendered with Chrome headless
+   --window-size=1200,630 so the output needs no resampling. */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{background:#1C1813; font-family:'Newsreader',Georgia,serif; position:relative}
+
+/* the Field Guide hero landscape, anchored to the bottom edge at native width */
+.hero{
+  position:absolute; left:0; bottom:0; width:1200px; height:428px;
+  background:url('og-card.hero.png') no-repeat center bottom; background-size:1200px 428px;
+}
+/* a calm field for the type, so it never fights the mountains */
+.scrim{
+  position:absolute; left:0; right:0; top:0; height:470px;
+  background:linear-gradient(180deg,#1C1813 0%,#1C1813 46%,rgba(28,24,19,0.9) 70%,rgba(28,24,19,0) 100%);
+}
+.inner{position:absolute; left:0; top:0; padding:74px 88px 0}
+.rule{width:66px; height:4px; background:#C96A40; margin-bottom:30px}
+.wordmark{
+  font-family:'Fraunces',Georgia,serif; font-weight:600;
+  font-size:72px; line-height:1.04; letter-spacing:-.018em; color:#F3EAD9;
+}
+.wordmark em{font-style:italic; color:#C96A40}
+.kicker{
+  font-size:17px; font-weight:500; letter-spacing:.26em; text-transform:uppercase;
+  color:#9A8E78; margin-top:22px;
+}
+.line{font-size:31px; line-height:1.4; color:#CDBFA6; margin-top:36px; max-width:790px}
+.line b{color:#F3EAD9; font-weight:500}
+.badge{
+  position:absolute; left:88px; bottom:52px;
+  font-size:19px; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+  color:#E8B375;
+}
+</style>
+</head>
+<body>
+  <div class="hero"></div>
+  <div class="scrim"></div>
+  <div class="inner">
+    <div class="rule"></div>
+    <div class="wordmark">The Animation <em>Frontier</em></div>
+    <div class="kicker">A field guide for working animators</div>
+    <div class="line">A weekly read on AI and the future of the craft, from a feature animator who <b>still animates every day</b>.</div>
+  </div>
+  <div class="badge">Free &nbsp;·&nbsp; Every Sunday</div>
+</body>
+</html>
