@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're on the list — The Animation Frontier</title>
+<meta name="description" content="You'll hear about it before anyone else. No spam, and no pitch until there's something real to tell you about.">
+<link rel="canonical" href="https://santormediaventures.com/on-the-list/">
+<!-- A confirmation page has no business in search results. It is reached by
+     clicking a button in an email, never by looking for it. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* The Animation Frontier — "Field Guide" skin.
+   Palette + fonts are the canonical brand tokens from
+   Automated Newsletter/brand/frontier/brand.json (v2.1). Keep them in sync.
+   Deliberately the same token block and the same masthead/card/footer
+   structure as /join/index.html — two pages in one funnel should not be two
+   stylesheets that drift. */
+:root{
+  --paper:#EADFCC; --card:#FBF6EC; --panel:#F5ECDB;
+  --ink:#2B2620; --soft:#5C5346; --muted:#8A7E6C; --rule:#E3D7C1;
+  --accent:#BD5630; --accent-deep:#9C4322; --accent-soft:#F1E2D0;
+  --accent-tint:#F6EADB; --amber:#E8B375;
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Newsreader',Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:18px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; min-height:100vh;
+}
+a{color:var(--accent-deep)}
+
+.wrap{width:100%; max-width:660px; margin:0 auto; padding:0 22px}
+main{flex:1 0 auto; padding:54px 0 30px}
+
+/* masthead */
+.mast{text-align:center; margin-bottom:38px}
+.mast .rule-top{width:54px; height:3px; background:var(--accent); margin:0 auto 20px}
+.wordmark{
+  font-family:var(--display); font-weight:600; font-size:clamp(27px,6.4vw,38px);
+  letter-spacing:-.015em; line-height:1.1; margin:0;
+}
+.wordmark em{font-style:italic; color:var(--accent); font-weight:600}
+.kicker{
+  font-family:var(--body); font-size:11.5px; font-weight:500;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+  margin:13px 0 0;
+}
+
+/* card */
+.card{
+  background:var(--card); border:1px solid var(--rule); border-radius:3px;
+  padding:clamp(26px,5vw,44px); box-shadow:0 1px 0 rgba(43,38,32,.04);
+}
+h1{
+  font-family:var(--display); font-weight:600; font-size:clamp(25px,5.2vw,33px);
+  line-height:1.2; letter-spacing:-.015em; margin:0 0 14px;
+}
+.lede{font-size:19px; color:var(--soft); margin:0 0 26px}
+.card p{margin:0 0 17px}
+.card p:last-child{margin-bottom:0}
+
+/* the one ask on the page */
+.ask{
+  margin:30px 0 0; padding:22px 24px; background:var(--panel);
+  border-left:3px solid var(--amber); border-radius:2px;
+}
+.ask p{margin:0; font-size:16.5px; color:var(--soft)}
+.ask b{color:var(--ink); font-weight:600}
+
+.sig{
+  margin:30px 0 0; padding:19px 0 0; border-top:1px solid var(--rule);
+  font-family:var(--display); font-size:15px; color:var(--muted);
+}
+
+footer{
+  flex-shrink:0; text-align:center; padding:30px 0 40px;
+  font-size:14px; color:var(--muted);
+}
+footer a{color:var(--muted); text-decoration:underline}
+
+@media (max-width:520px){ body{font-size:17px} }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="wrap">
+
+    <div class="mast">
+      <div class="rule-top"></div>
+      <p class="wordmark">The Animation <em>Frontier</em></p>
+      <p class="kicker">A field guide for working animators</p>
+    </div>
+
+    <div class="card">
+      <h1>You're on the list</h1>
+      <p class="lede">When the workshop opens, you'll hear about it before anyone else.</p>
+
+      <p>That's the whole promise. No spam, and no pitch until there's something real to tell you about.</p>
+      <p>I'm still shaping this around what working animators actually need.</p>
+
+      <div class="ask">
+        <p><b>One thing that would help.</b> Head back to that last email and hit reply with the part of your week that eats the most time. That's what I'm building this around.</p>
+      </div>
+
+      <p class="sig">Dave Torres / The Animation Frontier</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    The Animation Frontier is published by
+    <a href="https://santormediaventures.com/">Santor Media Ventures</a>.
+  </div>
+</footer>
+
+</body>
+</html>
