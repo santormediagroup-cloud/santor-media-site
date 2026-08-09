@@ -61,10 +61,16 @@ h1{
 .lede{font-size:19px; color:var(--soft); margin:0 0 4px}
 .fineprint{font-size:14.5px; color:var(--muted); margin:16px 0 0}
 
-/* The embedded form. min-height carries the page while the iframe is still
-   measuring itself, so the card never collapses to a sliver on a slow line. */
+/* The embedded form.
+   min-height MUST fit the whole form INCLUDING the submit button, because the
+   height is only corrected once Tally's embed.js runs. At 620px the first live
+   render cut the form off just below the free-text box: the submit button was
+   not on the page at all. A form you cannot submit is worse than no form, and
+   it failed silently — nothing errors, it just looks like the bottom of the
+   page. So this is sized for the un-resized worst case, not the happy path.
+   Verified against the live render at 900px and 390px wide. */
 .formwrap{margin:28px 0 0; padding:22px 0 0; border-top:1px solid var(--rule)}
-iframe{width:100%; border:0; min-height:620px; display:block}
+iframe{width:100%; border:0; min-height:880px; display:block}
 
 /* The fallback is always in the DOM and always readable. An iframe that fails
    to load leaves no trace and no error, so a link that only appears "on error"
@@ -97,7 +103,11 @@ footer a{color:var(--muted); text-decoration:underline}
 
     <div class="card">
       <h1>What should I make next?</h1>
-      <p class="lede">I build AI tools and tests for animators, and I'd rather build what you actually need. Tap whatever you're curious about.</p>
+      <!-- The locked intro line deliberately is NOT repeated here. It lives in
+           the Tally form itself, which is the single copy of the locked spec and
+           is also what a visitor sees if they land on the form standalone. When
+           this page carried its own copy of it, the embedded page showed the
+           same sentence twice, six lines apart. One source, one appearance. -->
       <p class="fineprint">Fifteen seconds. No email, no account, no wrong answers.</p>
 
       <div class="formwrap">
